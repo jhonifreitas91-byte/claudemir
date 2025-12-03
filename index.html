@@ -2,131 +2,46 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>JC Store – Produtos de alta conversão</title>
+<title>Pacote Streaming Total</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-/* ---------- RESET ---------- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: "Segoe UI", sans-serif; background:#f5f5f5; color:#222; }
-
-/* ---------- TOPO ---------- */
-header { background:#111; color:#fff; padding:1rem 2rem; display:flex; align-items:center; justify-content:space-between; }
-header .logo { font-size:1.6rem; font-weight:700; letter-spacing:1px; }
-header nav a { color:#fff; margin-left:1.2rem; text-decoration:none; font-size:.95rem; }
-header nav a:hover { text-decoration:underline; }
-
-/* ---------- BANNER ---------- */
-.banner { width:100%; height:60vh; background:url(1.jpg) center/cover; display:flex; align-items:center; justify-content:center; color:#fff; text-align:center; }
-.banner h1 { font-size:3.2rem; text-shadow:0 2px 8px rgba(0,0,0,.6); }
-.banner p { font-size:1.3rem; margin-top:.5rem; }
-
-/* ---------- PRODUTOS ---------- */
-.produtos { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:2rem; padding:3rem 2rem; max-width:1200px; margin:auto; }
-.card { background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.08); transition:transform .3s; }
-.card:hover { transform:translateY(-6px); }
-.card img { width:100%; height:200px; object-fit:cover; }
-.card-body { padding:1rem; }
-.card-body h3 { font-size:1.1rem; margin-bottom:.4rem; }
-.card-body .preco { color:#e00; font-weight:700; font-size:1.3rem; margin:.4rem 0; }
-.card-body button { width:100%; border:none; background:#111; color:#fff; padding:.7rem; border-radius:4px; cursor:pointer; font-size:1rem; }
-.card-body button:hover { background:#e00; }
-
-/* ---------- RODAPÉ ---------- */
-footer { background:#111; color:#fff; text-align:center; padding:1.2rem; font-size:.85rem; }
+body{margin:0;font-family:Segoe UI,Helvetica,sans-serif;background:#0e0e0e;color:#fff}
+.banner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:linear-gradient(135deg,#e50914 0%,#6b1fb8 40%,#0052d4 70%,#0044cc 100%);
+  padding:60px 8%;
+  flex-wrap:wrap;
+}
+.texto{flex:1 1 300px}
+.texto h1{font-size:2.6rem;margin-bottom:.6rem;text-shadow:0 2px 6px rgba(0,0,0,.5)}
+.texto p{font-size:1.2rem;margin-bottom:1.4rem}
+.preco{font-size:2.2rem;font-weight:700;background:#fff;color:#111;padding:8px 18px;border-radius:6px;display:inline-block}
+.logos{flex:0 0 320px;display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
+.logos img{height:50px;filter:drop-shadow(0 0 4px rgba(0,0,0,.6))}
+button{border:none;background:#fff;color:#111;padding:14px 32px;font-size:1.1rem;border-radius:30px;cursor:pointer;transition:.3s}
+button:hover{background:#f2f2f2;transform:scale(1.05)}
+@media(max-width:700px){.banner{flex-direction:column;text-align:center}.logos{flex:0 0 auto;margin-top:24px}}
 </style>
 </head>
-
 <body>
-<!-- ---------- TOPO ---------- -->
-<header>
-  <div class="logo">JC Store</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#produtos">Produtos</a>
-    <a href="#contato">Contato</a>
-  </nav>
-</header>
 
-<!-- ---------- BANNER ---------- -->
 <section class="banner">
-  <div>
-    <h1>Eleve o estilo, aumente o lucro</h1>
-    <p>Produtos testados em conversão + checkout otimizado</p>
+  <div class="texto">
+    <h1>Todos os Streamings em Só Um Pacote</h1>
+    <p>Assine já: Netflix, HBO+, Disney+ e Paramount+ sem travar.</p>
+    <div class="preco">R$ 29,90/mês</div>
+    <br><button>Assinar Agora</button>
+  </div>
+
+  <div class="logos">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/HBO_Max_Logo.svg" alt="HBO+">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Paramount%2B_logo.svg" alt="Paramount+">
   </div>
 </section>
 
-<!-- ---------- PRODUTOS ---------- -->
-<section id="produtos" class="produtos">
-  <!-- Card 1 -->
-  <article class="card">
-    <img src="1.jpg" alt="Relógio">
-    <div class="card-body">
-      <h3>Relógio Minimalista</h3>
-      <p>Correia de aço, resistência 3 ATM</p>
-      <div class="preco">R$ 119,90</div>
-      <button>Comprar</button>
-    </div>
-  </article>
-
-  <!-- Card 2 -->
-  <article class="card">
-    <img src="https://images.unsplash.com/photo-1572635196237-14b3f3515e6d?auto=format&fit=crop&w=600&q=80" alt="Óculos">
-    <div class="card-body">
-      <h3>Óculos UV400</h3>
-      <p>Proteção total, armação leve</p>
-      <div class="preco">R$ 69,90</div>
-      <button>Comprar</button>
-    </div>
-  </article>
-
-  <!-- Card 3 -->
-  <article class="card">
-    <img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=600&q=80" alt="Mochila">
-    <div class="card-body">
-      <h3>Mochila 25 L</h3>
-      <p>Antirroubo, compartimento 15,6"</p>
-      <div class="preco">R$ 149,90</div>
-      <button>Comprar</button>
-    </div>
-  </article>
-
-  <!-- Card 4 -->
-  <article class="card">
-    <img src="https://images.unsplash.com/photo-1585386959984-a415522e3fd9?auto=format&fit=crop&w=600&q=80" alt="Kit">
-    <div class="card-body">
-      <h3>Kit 3 Cuecas Box</h3>
-      <p>Algodão premium, cores sortidas</p>
-      <div class="preco">R$ 79,90</div>
-      <button>Comprar</button>
-    </div>
-  </article>
-
-  <!-- Card 5 -->
-  <article class="card">
-    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=600&q=80" alt="Tênis">
-    <div class="card-body">
-      <h3>Tênis Casual</h3>
-      <p>Sola emborrachada, super leve</p>
-      <div class="preco">R$ 139,90</div>
-      <button>Comprar</button>
-    </div>
-  </article>
-
-  <!-- Card 6 -->
-  <article class="card">
-    <img src="https://images.unsplash.com/photo-1609421139394-8e0b5a1b7a47?auto=format&fit=crop&w=600&q=80" alt="Fone">
-    <div class="card-body">
-      <h3>Fone Bluetooth</h3>
-      <p>ANC, 30 h bateria, USB-C</p>
-      <div class="preco">R$ 189,90</div>
-      <button>Comprar</button>
-    </div>
-  </article>
-</section>
-
-<!-- ---------- RODAPÉ ---------- -->
-<footer>
-  © 2025 JC Store – Todos os direitos reservados. Feito para converter.
-</footer>
 </body>
 </html>
