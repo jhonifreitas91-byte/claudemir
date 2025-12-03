@@ -5,15 +5,15 @@
 <title>Streaming Total – Design Premium</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-/* ===== CORES BASE ===== */
+/ ===== CORES BASE ===== /
 :root{
-  --roxo:#8a2be2;
-  --azul:#0052d4;
-  --preto:#0e0e0e;
-  --cinza:#181818;
+  --roxo:8a2be2;
+  --azul:0052d4;
+  --preto:0e0e0e;
+  --cinza:181818;
 }
 
-*{
+{
   margin:0;
   padding:0;
   box-sizing:border-box;
@@ -22,11 +22,11 @@
 body{
   font-family:Segoe UI,Helvetica,sans-serif;
   background:var(--preto);
-  color:#fff;
+  color:fff;
   overflow-x:hidden;
 }
 
-/* ===== HEADER COM IMAGEM DE FUNDO ===== */
+/ ===== HEADER COM IMAGEM DE FUNDO ===== /
 .hero{
   position:relative;
   height:80vh;
@@ -36,11 +36,11 @@ body{
   justify-content:center;
   border-bottom:4px solid var(--roxo);
 }
-.hero::before{ /* gradiente roxo/azul */
+.hero::before{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(135deg,#8a2be290 0%,#0052d490 100%);
+  background:linear-gradient(135deg,8a2be290 0%,0052d490 100%);
 }
 .hero-content{
   position:relative;
@@ -56,34 +56,85 @@ body{
   font-size:1.3rem;
   margin-bottom:2rem;
 }
-.hero button{
-  background:#fff;
-  color:#111;
+.hero-buttons{
+  display:flex;
+  gap:1rem;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.hero-btn{
+  background:fff;
+  color:111;
   border:none;
   padding:14px 36px;
   font-size:1.1rem;
   border-radius:30px;
   cursor:pointer;
   transition:.3s;
+  text-decoration:none;
+  display:inline-block;
 }
-.hero button:hover{
+.hero-btn:hover{
   transform:scale(1.05);
   box-shadow:0 0 20px var(--roxo);
 }
+.hero-btn.secondary{
+  background:transparent;
+  color:fff;
+  border:2px solid fff;
+}
 
-/* ===== ÁREA DE PLANOS ===== */
+/ ===== SEÇÃO DE VANTAGENS ===== /
+.vantagens{
+  padding:4rem 2rem;
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:2rem;
+}
+.vantagem-card{
+  text-align:center;
+  padding:2rem;
+  background:var(--cinza);
+  border-radius:12px;
+  border:2px solid transparent;
+  transition:.3s;
+}
+.vantagem-card:hover{
+  border-color:var(--roxo);
+  transform:translateY(-5px);
+}
+.vantagem-icon{
+  font-size:3rem;
+  margin-bottom:1rem;
+}
+.vantagem-title{
+  font-size:1.3rem;
+  margin-bottom:.5rem;
+  color:var(--roxo);
+}
+
+/ ===== ÁREA DE PLANOS ===== /
 .planos{
   padding:4rem 2rem;
   max-width:1200px;
   margin:auto;
 }
-.planos h2{
+.planos-header{
   text-align:center;
-  font-size:2.4rem;
   margin-bottom:3rem;
+}
+.planos h2{
+  font-size:2.4rem;
+  margin-bottom:1rem;
   background:-webkit-linear-gradient(45deg,var(--roxo),var(--azul));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
+}
+.planos-subtitle{
+  font-size:1.2rem;
+  color:ccc;
 }
 .lista-planos{
   display:grid;
@@ -91,7 +142,7 @@ body{
   gap:2.4rem;
 }
 
-/* ===== CARD DE PLANO ===== */
+/ ===== CARD DE PLANO ===== /
 .card{
   background:var(--cinza);
   border:2px solid transparent;
@@ -100,7 +151,7 @@ body{
   position:relative;
   transition:.4s;
 }
-.card::before{ /* efeito neon */
+.card::before{
   content:"";
   position:absolute;
   inset:-2px;
@@ -121,17 +172,136 @@ body{
   display:flex;
   justify-content:space-around;
   padding:.6rem 0;
-  background:#000;
+  background:000;
 }
-.logos-bar img{height:28px;filter:drop-shadow(0 0 2px #fff)}
+.logos-bar img{height:28px;filter:drop-shadow(0 0 2px fff)}
 .info{padding:1.2rem}
 .titulo{font-size:1.3rem;margin-bottom:.4rem}
-.benef{font-size:.9rem;color:#ccc;margin-bottom:.8rem;min-height:60px}
-.preco{font-size:1.6rem;font-weight:700;color:#0f0;margin-bottom:.8px}
-button{width:100%;border:none;background:var(--roxo);color:#fff;padding:.7rem;font-size:1rem;border-radius:4px;cursor:pointer;transition:.3s}
-button:hover{background:var(--azul)}
+.benef{font-size:.9rem;color:ccc;margin-bottom:.8rem;min-height:60px}
+.preco{font-size:1.6rem;font-weight:700;color:0f0;margin-bottom:.8px}
+.btn-assinar{
+  width:100%;
+  border:none;
+  background:var(--roxo);
+  color:fff;
+  padding:.7rem;
+  font-size:1rem;
+  border-radius:4px;
+  cursor:pointer;
+  transition:.3s;
+}
+.btn-assinar:hover{background:var(--azul)}
 
-/* ===== RODAPÉ COM IMAGEM ===== */
+/ ===== BOTÕES EXTRAS ===== /
+.extra-buttons{
+  display:flex;
+  gap:1rem;
+  margin-top:1rem;
+  flex-wrap:wrap;
+}
+.btn-extra{
+  flex:1;
+  padding:.5rem;
+  border:1px solid var(--roxo);
+  background:transparent;
+  color:var(--roxo);
+  border-radius:4px;
+  cursor:pointer;
+  transition:.3s;
+  font-size:.9rem;
+}
+.btn-extra:hover{
+  background:var(--roxo);
+  color:fff;
+}
+
+/ ===== SEÇÃO DE DEPOIMENTOS ===== /
+.depoimentos{
+  padding:4rem 2rem;
+  max-width:1200px;
+  margin:auto;
+}
+.depoimentos h2{
+  text-align:center;
+  font-size:2rem;
+  margin-bottom:2rem;
+  background:-webkit-linear-gradient(45deg,var(--roxo),var(--azul));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.depoimento-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:2rem;
+}
+.depoimento-card{
+  background:var(--cinza);
+  padding:2rem;
+  border-radius:12px;
+  border:2px solid transparent;
+  transition:.3s;
+}
+.depoimento-card:hover{
+  border-color:var(--azul);
+}
+.depoimento-text{
+  font-style:italic;
+  margin-bottom:1rem;
+  color:ddd;
+}
+.depoimento-author{
+  text-align:right;
+  color:var(--roxo);
+  font-weight:700;
+}
+
+/ ===== SEÇÃO DE FAQ ===== /
+.faq{
+  padding:4rem 2rem;
+  max-width:800px;
+  margin:auto;
+}
+.faq h2{
+  text-align:center;
+  font-size:2rem;
+  margin-bottom:2rem;
+  background:-webkit-linear-gradient(45deg,var(--roxo),var(--azul));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.faq-item{
+  background:var(--cinza);
+  margin-bottom:1rem;
+  border-radius:8px;
+  overflow:hidden;
+}
+.faq-question{
+  width:100%;
+  padding:1rem;
+  background:transparent;
+  border:none;
+  text-align:left;
+  color:fff;
+  font-size:1.1rem;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  transition:.3s;
+}
+.faq-question:hover{
+  background:rgba(138,43,226,.2);
+}
+.faq-answer{
+  padding:0 1rem 1rem;
+  color:ccc;
+  display:none;
+}
+.faq-item.active .faq-answer{display:block}
+.faq-toggle{font-size:1.2rem;transition:.3s}
+.faq-item.active .faq-toggle{transform:rotate(180deg)}
+
+/ ===== RODAPÉ COM IMAGEM ===== /
 footer{
   margin-top:4rem;
   background:url("https://images.unsplash.com/photo-1574375927938-d5a98fa8a2a5?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
@@ -146,11 +316,33 @@ footer::before{
   inset:0;
   background:rgba(0,0,0,.7);
 }
-footer p{
+.footer-content{
   position:relative;
   z-index:2;
+}
+footer p{
   font-size:.9rem;
-  color:#aaa;
+  color:aaa;
+  margin-bottom:1rem;
+}
+.footer-buttons{
+  display:flex;
+  gap:1rem;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.footer-btn{
+  padding:8px 20px;
+  border:1px solid var(--roxo);
+  background:transparent;
+  color:var(--roxo);
+  border-radius:20px;
+  text-decoration:none;
+  transition:.3s;
+}
+.footer-btn:hover{
+  background:var(--roxo);
+  color:fff;
 }
 </style>
 </head>
@@ -161,13 +353,43 @@ footer p{
   <div class="hero-content">
     <h1>Todos os Streamings em Um Só Lugar</h1>
     <p>Preços imbatíveis, contrato mensal e catálogo completo.</p>
-    <button>Ver Planos</button>
+    <div class="hero-buttons">
+      <a href="planos" class="hero-btn">Ver Planos</a>
+      <a href="vantagens" class="hero-btn secondary">Saiba Mais</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VANTAGENS ===== -->
+<section id="vantagens" class="vantagens">
+  <div class="vantagem-card">
+    <div class="vantagem-icon">⚡</div>
+    <h3 class="vantagem-title">Ativação Imediata</h3>
+    <p>Comece a assistir em menos de 5 minutos após a compra</p>
+  </div>
+  <div class="vantagem-card">
+    <div class="vantagem-icon">💰</div>
+    <h3 class="vantagem-title">Economize até 70%</h3>
+    <p>Preços menores que a assinatura direta dos apps</p>
+  </div>
+  <div class="vantagem-card">
+    <div class="vantagem-icon">📱</div>
+    <h3 class="vantagem-title">Multiplataforma</h3>
+    <p>Assista na TV, celular, tablet ou computador</p>
+  </div>
+  <div class="vantagem-card">
+    <div class="vantagem-icon">🔒</div>
+    <h3 class="vantagem-title">100% Seguro</h3>
+    <p>Pagamento protegido e dados criptografados</p>
   </div>
 </section>
 
 <!-- ===== PLANOS ===== -->
-<section class="planos">
-  <h2>Escolha Seu Combo</h2>
+<section id="planos" class="planos">
+  <div class="planos-header">
+    <h2>Escolha Seu Combo</h2>
+    <p class="planos-subtitle">Selecione o plano perfeito para você</p>
+  </div>
   <div class="lista-planos">
 
     <!-- COMBO 1 -->
@@ -181,7 +403,11 @@ footer p{
         <h3 class="titulo">Combo Básico</h3>
         <p class="benef">1 tela HD, sem anúncios, acesso simultâneo.</p>
         <div class="preco">R$ 19,90/mês</div>
-        <button>Assinar</button>
+        <button class="btn-assinar">Assinar Agora</button>
+        <div class="extra-buttons">
+          <button class="btn-extra">Ver Detalhes</button>
+          <button class="btn-extra">Teste Grátis</button>
+        </div>
       </div>
     </article>
 
@@ -195,15 +421,19 @@ footer p{
       </div>
       <div class="info">
         <h3 class="titulo">Combo Família</h3>
-        <p class="benef">4 telas 4K, downloads, perfis infantis.</p>
+        <p class="benef">4 telas 4K, downloads ilimitados, perfis infantis.</p>
         <div class="preco">R$ 39,90/mês</div>
-        <button>Assinar</button>
+        <button class="btn-assinar">Assinar Agora</button>
+        <div class="extra-buttons">
+          <button class="btn-extra">Ver Detalhes</button>
+          <button class="btn-extra">Teste Grátis</button>
+        </div>
       </div>
     </article>
 
     <!-- COMBO 3 -->
     <article class="card">
-      <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=800&q=60" alt="Solo Premium">
+      <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=800&q=60" alt="Plano Solo">
       <div class="logos-bar">
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix">
       </div>
@@ -211,22 +441,30 @@ footer p{
         <h3 class="titulo">Netflix Solo</h3>
         <p class="benef">1 tela 4K, catálogo original, cancelamento fácil.</p>
         <div class="preco">R$ 14,90/mês</div>
-        <button>Assinar</button>
+        <button class="btn-assinar">Assinar Agora</button>
+        <div class="extra-buttons">
+          <button class="btn-extra">Ver Detalhes</button>
+          <button class="btn-extra">Teste Grátis</button>
+        </div>
       </div>
     </article>
 
     <!-- COMBO 4 -->
     <article class="card">
-      <img src="https://images.unsplash.com/photo-1616531770192-6dafa28b81af?auto=format&fit=crop&w=800&q=60" alt="Esportes">
+      <img src="https://images.unsplash.com/photo-1616531770192-6dafa28b81af?auto=format&fit=crop&w=800&q=60" alt="Combo Esportes">
       <div class="logos-bar">
         <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Paramount%2B_logo.svg" alt="Paramount+">
         <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/HBO_Max_Logo.svg" alt="HBO+">
       </div>
       <div class="info">
         <h3 class="titulo">Combo Esportes</h3>
-        <p class="benef">Champions, NFL, séries premiadas.</p>
+        <p class="benef">Champions League, NFL, séries premiadas.</p>
         <div class="preco">R$ 34,90/mês</div>
-        <button>Assinar</button>
+        <button class="btn-assinar">Assinar Agora</button>
+        <div class="extra-buttons">
+          <button class="btn-extra">Ver Detalhes</button>
+          <button class="btn-extra">Teste Grátis</button>
+        </div>
       </div>
     </article>
 
@@ -241,19 +479,115 @@ footer p{
       </div>
       <div class="info">
         <h3 class="titulo">Super Pack Premium</h3>
-        <p class="benef">5 telas 4K/HDR, lançamentos simultâneos.</p>
+        <p class="benef">5 telas 4K/HDR, todos os catálogos, lançamentos simultâneos.</p>
         <div class="preco">R$ 59,90/mês</div>
-        <button>Assinar</button>
+        <button class="btn-assinar">Assinar Agora</button>
+        <div class="extra-buttons">
+          <button class="btn-extra">Ver Detalhes</button>
+          <button class="btn-extra">Teste Grátis</button>
+        </div>
       </div>
     </article>
 
   </div>
 </section>
 
+<!-- ===== DEPOIMENTOS ===== -->
+<section class="depoimentos">
+  <h2>O que nossos clientes dizem</h2>
+  <div class="depoimento-grid">
+    <div class="depoimento-card">
+      <p class="depoimento-text">"Economizo mais de R$ 100 por mês e tenho acesso a todos os conteúdos que amo!"</p>
+      <p class="depoimento-author">- Maria S., São Paulo</p>
+    </div>
+    <div class="depoimento-card">
+      <p class="depoimento-text">"Ativação super rápida, em 3 minutos já estava assistindo meu seriado favorito."</p>
+      <p class="depoimento-author">- João P., Rio de Janeiro</p>
+    </div>
+    <div class="depoimento-card">
+      <p class="depoimento-text">"O combo família é perfeito, meus filhos assistem desenhos e eu vejo meus esportes."</p>
+      <p class="depoimento-author">- Ana C., Belo Horizonte</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+  <h2>Perguntas Frequentes</h2>
+  <div class="faq-item">
+    <button class="faq-question">
+      Como funciona o acesso aos streamings?
+      <span class="faq-toggle">▼</span>
+    </button>
+    <div class="faq-answer">
+      <p>Você recebe os dados de acesso dentro de 5 minutos após a compra e pode usar normalmente nos apps oficiais.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">
+      Posso cancelar quando quiser?
+      <span class="faq-toggle">▼</span>
+    </button>
+    <div class="faq-answer">
+      <p>Sim! Não temos fidelidade. Cancele quando quiser sem multas ou burocracia.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">
+      Os preços realmente são mais baratos?
+      <span class="faq-toggle">▼</span>
+    </button>
+    <div class="faq-answer">
+      <p>Sim! Nossos combos custam até 70% menos que as assinaturas individuais oficiais.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ===== RODAPÉ ===== -->
 <footer>
-  <p>Streaming Total © 2025 | Todos os direitos reservados</p>
+  <div class="footer-content">
+    <p>Streaming Total © 2025 | Todos os direitos reservados</p>
+    <div class="footer-buttons">
+      <a href="" class="footer-btn">Central de Ajuda</a>
+      <a href="" class="footer-btn">WhatsApp</a>
+      <a href="" class="footer-btn">Política de Privacidade</a>
+    </div>
+  </div>
 </footer>
+
+<script>
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', () => {
+    const faqItem = button.parentElement;
+    faqItem.classList.toggle('active');
+  });
+});
+
+// Smooth Scroll
+document.querySelectorAll('a[href^=""]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
+// Add to Cart Simulation
+document.querySelectorAll('.btn-assinar').forEach(button => {
+  button.addEventListener('click', function() {
+    this.textContent = '✓ Adicionado!';
+    this.style.background = '0f0';
+    this.style.color = '000';
+    setTimeout(() => {
+      this.textContent = 'Assinar Agora';
+      this.style.background = 'var(--roxo)';
+      this.style.color = 'fff';
+    }, 2000);
+  });
+});
+</script>
 
 </body>
 </html>
