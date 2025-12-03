@@ -23,10 +23,67 @@ body{margin:0;font-family:Segoe UI,Helvetica,sans-serif;background:#0e0e0e;color
 button{border:none;background:#fff;color:#111;padding:14px 32px;font-size:1.1rem;border-radius:30px;cursor:pointer;transition:.3s}
 button:hover{background:#f2f2f2;transform:scale(1.05)}
 @media(max-width:700px){.banner{flex-direction:column;text-align:center}.logos{flex:0 0 auto;margin-top:24px}}
+
+/* ========== ABAS DE COMPRA ========== */
+.compra-abas{
+  max-width:1200px;
+  margin:40px auto;
+  padding:0 2rem;
+}
+.abas-menu{
+  display:flex;
+  gap:8px;
+  border-bottom:2px solid #444;
+  margin-bottom:1.2rem;
+}
+.aba-btn{
+  background:#222;
+  color:#ccc;
+  border:none;
+  padding:.7rem 1.4rem;
+  cursor:pointer;
+  border-radius:6px 6px 0 0;
+  transition:.3s;
+}
+.aba-btn.ativo,
+.aba-btn:hover{
+  background:#e50914;
+  color:#fff;
+}
+.conteudo-aba{
+  display:none;
+  background:#1b1b1b;
+  padding:1.6rem;
+  border-radius:0 8px 8px 8px;
+}
+.conteudo-aba.ativo{
+  display:block;
+}
+.resumo-carrinho{
+  background:#111;
+  padding:1rem;
+  border-radius:6px;
+  margin-top:1rem;
+}
+.resumo-carrinho ul{
+  list-style:none;
+  margin:.6rem 0;
+}
+.resumo-carrinho li{
+  display:flex;
+  justify-content:space-between;
+  padding:4px 0;
+}
+.total{
+  font-weight:700;
+  font-size:1.2rem;
+  color:#0f0;
+}
 </style>
 </head>
 <body>
 
+<!-- ========== BANNER ========== -->
 <section class="banner">
   <div class="texto">
     <h1>Todos os Streamings em Só Um Pacote</h1>
@@ -42,6 +99,69 @@ button:hover{background:#f2f2f2;transform:scale(1.05)}
     <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Paramount%2B_logo.svg" alt="Paramount+">
   </div>
 </section>
+
+<!-- ========== ABAS DE COMPRA ========== -->
+<section class="compra-abas">
+  <div class="abas-menu">
+    <button class="aba-btn ativo" onclick="mostrarAba('plano')">Escolha o Plano</button>
+    <button class="aba-btn" onclick="mostrarAba('pagamento')">Pagamento</button>
+    <button class="aba-btn" onclick="mostrarAba('confirmacao')">Confirmação</button>
+  </div>
+
+  <!-- ABA 1 -->
+  <div id="plano" class="conteudo-aba ativo">
+    <h2>Plano Único: 4 Streamings por R$ 29,90/mês</h2>
+    <p>Sem fidelidade. Cancele quando quiser.</p>
+    <button onclick="escolherPlano()">Adicionar ao Carrinho</button>
+
+    <div class="resumo-carrinho">
+      <ul id="lista-carrinho">
+        <li>Produto <span>R$ 0,00</span></li>
+      </ul>
+      <div class="total">Total: R$ 0,00</div>
+    </div>
+  </div>
+
+  <!-- ABA 2 -->
+  <div id="pagamento" class="conteudo-aba">
+    <h2>Forma de Pagamento</h2>
+    <p>Selecione:</p>
+    <label><input type="radio" name="pg" value="pix" checked> Pix (5% off)</label><br>
+    <label><input type="radio" name="pg" value="cartao"> Cartão de Crédito</label><br>
+    <label><input type="radio" name="pg" value="boleto"> Boleto</label>
+    <br><br>
+    <button onclick="proximaAba('confirmacao')">Prosseguir</button>
+  </div>
+
+  <!-- ABA 3 -->
+  <div id="confirmacao" class="conteudo-aba">
+    <h2>Revise e Confirme</h2>
+    <p>Plano: Pacote Total Streamings</p>
+    <p>Valor: R$ 29,90/mês</p>
+    <button onclick="confirmarCompra()">Confirmar Assinatura</button>
+  </div>
+</section>
+
+<script>
+const preco = 29.90;
+function mostrarAba(id){
+  document.querySelectorAll('.conteudo-aba').forEach(a=>a.classList.remove('ativo'));
+  document.querySelectorAll('.aba-btn').forEach(b=>b.classList.remove('ativo'));
+  document.getElementById(id).classList.add('ativo');
+  document.querySelector(`button[onclick="mostrarAba('${id}')"]`).classList.add('ativo');
+}
+function escolherPlano(){
+  document.getElementById('lista-carrinho').innerHTML =
+    `<li>Pacote Total Streamings <span>R$ ${preco.toFixed(2)}</span></li>`;
+  document.querySelector('.total').textContent = 'Total: R$ '+preco.toFixed(2);
+}
+function proximaAba(id){
+  mostrarAba(id);
+}
+function confirmarCompra(){
+  alert('Assinatura confirmada! Enviamos os dados de acesso ao seu e-mail.');
+}
+</script>
 
 </body>
 </html>
